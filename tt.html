@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <base href="">
+    <title> #JMrh </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+    <link rel="shortcut icon" href="https://i.hizliresim.com/Y6kG0k.jpg">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+        .video-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        .video-bg video {
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+        }
+        .content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            color: white;
+        }
+    </style>
+</head>
+<body oncontextmenu="return false" onselectstart="return false" ondragstart="return false" onkeydown="return false" bgcolor="black">
+
+    <div class="video-bg">
+        <video autoplay muted loop>
+            <source src="https://cdn.discordapp.com/attachments/1235331488854179950/1277949440245633094/JMrh.mp4?ex=66e964a9&is=66e81329&hm=a4fea9cf957b690ce4a407a3ac35b6f616250b476cb9bd674885c249f5ba1fdb&" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <div class="content">
+        <center><br><br>
+        <div class="imagehold">
+            <img src="https://media.discordapp.net/attachments/1221974916644081746/1230274361689112687/IMG_2859.jpg?ex=66e95109&is=66e7ff89&hm=240ec08a856591519f0a0f80d533480ad6c01333c20a10d33461e406079d1b7e&=&format=webp&width=561&height=702" width="300" height="250">
+            <div style="color:red;font:12pt Courier New;"></div><br>
+            <div style="color:beige;font:19pt Courier New;"><b>   You Get hacking by (#JMrh) </b></div><br>
+            <div style="color:#FF0000;font:21pt Courier New;"><b>:<font color="white"> Discord.gg/dsr</font></b></div><br><br>
+            
+            <audio autoplay>
+                <source src="https://cdn.discordapp.com/attachments/1261114958574387241/1277940756467679263/JMrh_Made_with_Clipchamp.mp3?ex=66e95c93&is=66e80b13&hm=abb91740683460fa64b4bffc12b1af821630d8c5485b84b5cff1a7aee8f7842a&"
+                " type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </center>
+        <br><br>
+    <br>
+        <br><br>
+        <div style="color:white;">
+            <b>your ip </b> <span id="ip-address-value">Fetching...</span><br>
+            <b>:</b>
+             <pre id="ip-info">Fetching...</pre>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        //form tags to omit in NS6+:
+        var omitformtags=["input", "textarea", "select"];
+        omitformtags=omitformtags.join("|");
+
+        function disableselect(e){
+            if (omitformtags.indexOf(e.target.tagName.toLowerCase())==-1)
+                return false;
+        }
+
+        function reEnable(){
+            return true;
+        }
+
+        if (typeof document.onselectstart != "undefined")
+            document.onselectstart = new Function ("return false");
+        else {
+            document.onmousedown = disableselect;
+            document.onmouseup = reEnable;
+        }
+
+        // JavaScript code to fetch and display the user's IP address and information
+        function fetchIPAndInfo() {
+            fetch('https://api.ipify.org/?format=json')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('ip-address-value').textContent = data.ip;
+                    return data.ip;
+                })
+                .then(ip => fetch(`https://ipinfo.io/${ip}/json`))
+                .then(response => response.json())
+                .then(ipInfoData => {
+                    document.getElementById('ip-info').textContent = JSON.stringify(ipInfoData, null, 2);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    document.getElementById('ip-address-value').textContent = 'Unable to fetch IP address.';
+                    document.getElementById('ip-info').textContent = 'Unable to fetch IP information.';
+                });
+        }
+
+        // Fetch IP address and information initially
+        fetchIPAndInfo();
+    </script>
+</body>
+</html>
